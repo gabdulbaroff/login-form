@@ -1,8 +1,10 @@
+import { SignInPage } from "./pages/sign-in/SignInPage"
 
 function App() {
 
   return (
     <>
+    <SignInPage />
     </>
   )
 }

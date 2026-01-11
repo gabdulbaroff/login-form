@@ -1,0 +1,37 @@
+$primaryBackground: #181C1F;
+$primaryColor: #F5F5F5;
+$secondaryColor: #C9CACB;
+$errorColor: #D81159;
+$primarySize: 16px;
+
+
+//Mixins describe media queries for different screens
+@mixin xxl-min {
+  @media (min-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin xl-min {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin sm-min {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin sm-max {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+
+a, button {
+  z-index: 1;
+}
+
+//TODO: Add mixin for typographyies
