@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import css from "./ContentHeader.module.scss";
+import css from "./ContentHeader.module.css";
 import cn from "classnames";
 
 interface ContentHeaderProps {

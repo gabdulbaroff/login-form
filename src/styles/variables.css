@@ -1,0 +1,11 @@
+:root {
+  --primary-background: #181C1F;
+  --primary-color: #F5F5F5;
+  --secondary-color: #C9CACB;
+  --error-color: #D81159;
+  --primary-size: 16px;
+}
+
+a, button {
+  z-index: 1;
+}
