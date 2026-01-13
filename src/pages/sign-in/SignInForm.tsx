@@ -21,10 +21,10 @@ export const SignInForm = () => {
     password: '',
   });
 
-  const [formValidation, setFormValidation] = useState({
-    error: '',
-    success: '',
-  });
+  // const [formValidation, setFormValidation] = useState({
+  //   error: '',
+  //   success: '',
+  // });
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
