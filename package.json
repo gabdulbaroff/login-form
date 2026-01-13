@@ -1,5 +1,6 @@
 {
   "name": "login_form",
+  "homepage": "https://gabdulbaroff.github.io/login-form/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,10 +10,13 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "classnames": "^2.5.1",
+    "gh-pages": "^6.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.12.0",
