@@ -1,8 +1,6 @@
 @import '../../styles/variables.css';
 
 .emailInput {
-  margin-bottom: 25px;
-
   .errorDescription {
     margin-top: 6px;
     font-size: 12px;

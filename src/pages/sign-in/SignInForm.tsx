@@ -69,6 +69,7 @@ export const SignInForm = () => {
           error={errors.email}
           onChange={handleChange}
           label='Email'
+          className={css.EmailInput}
         />
         <PasswordInput
           name='password'
@@ -76,6 +77,7 @@ export const SignInForm = () => {
           error={errors.password}
           onChange={handleChange}
           label='Password'
+          className={css.PasswordInput}
         />
         <div className={css.resetPasswordLink}>
           <Link to='/user/reset-password'>Forgot your password?</Link>
