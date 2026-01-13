@@ -1,6 +1,5 @@
 import { ContentHeader } from '../../components/ContentHeader/ContentHeader';
-// import React from "react";
-// import { SignInForm } from "./SignInForm";
+import { SignInForm } from './SignInForm';
 
 export const SignInPage = () => {
   return (
@@ -9,7 +8,7 @@ export const SignInPage = () => {
         label='Sign in to your account'
         content='Sign in using your work email and password'
       />
-      {/*<SignInForm />*/}
+      <SignInForm />
     </div>
   );
 };

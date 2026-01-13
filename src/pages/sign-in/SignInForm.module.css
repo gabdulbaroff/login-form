@@ -1,0 +1,21 @@
+@import '../../styles/variables.css';
+
+.signInForm {
+  .resetPasswordLink {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-top: -34px;
+    margin-bottom: 29px;
+
+    a {
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+      margin-top: -14px;
+    }
+  }
+
+  padding-bottom: 25px;
+}

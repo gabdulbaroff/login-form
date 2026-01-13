@@ -1,0 +1,28 @@
+@import '../../styles/variables.css';
+
+.button {
+  width: 100%;
+  border-radius: 4px;
+  color: var(--primary-color);
+  outline: none;
+  border: none;
+  padding: 7.5px;
+  font-size: var(--primary-size);
+
+  &.primary {
+    background: #559cfc;
+  }
+
+  &.secondary {
+    background: #303336;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
+
+  &:hover {
+    background: #6aa5fc;
+    cursor: pointer;
+  }
+}
