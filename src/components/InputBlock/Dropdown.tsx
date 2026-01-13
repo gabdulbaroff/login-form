@@ -1,6 +1,7 @@
 import css from './Dropdown.module.css';
 import { type FC, useRef, useState } from 'react';
 import cn from 'classnames';
+import { useOnClickOutside } from 'usehooks-ts';
 
 export interface Option {
   value: string;
@@ -16,7 +17,7 @@ interface DropdownProps {
 }
 
 export const Dropdown: FC<DropdownProps> = ({ options, onSelect, className, defaultOption }) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = () => {
     setIsOpen(false);
@@ -35,7 +36,7 @@ export const Dropdown: FC<DropdownProps> = ({ options, onSelect, className, defa
     setIsOpen(!isOpen);
   };
 
-  useOnClickOutside(ref, handleClickOutside);
+  useOnClickOutside(ref as React.RefObject<HTMLElement>, handleClickOutside);
 
   return (
     <div className={cn(css.dropDown, className)} ref={ref}>
