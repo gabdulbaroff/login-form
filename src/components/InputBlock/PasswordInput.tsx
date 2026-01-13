@@ -1,5 +1,4 @@
-import { TextInput } from './TextInput';
-import { type ValidationType } from './types';
+import { TextInput, ValidationType } from './TextInput';
 import { type ChangeEvent, type FC, type InputHTMLAttributes, useState } from 'react';
 import css from './PasswordInput.module.css';
 import cn from 'classnames';
@@ -64,7 +63,7 @@ export const PasswordInput: FC<PasswordInputProps> = ({
         type={showPassword ? 'text' : 'password'}
         label={label}
         validation={error}
-        validationType={validationType || 'danger'}
+        validationType={validationType || ValidationType.Danger}
         onFocus={onFocus}
         onBlur={onBlur}
         autoComplete=''
