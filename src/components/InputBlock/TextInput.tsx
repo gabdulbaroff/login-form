@@ -1,12 +1,7 @@
 import cn from 'classnames';
 import css from './InputBlock.module.css';
 import type { FC, InputHTMLAttributes } from 'react';
-
-export enum ValidationType {
-  Primary,
-  Danger,
-  Warning,
-}
+import { ValidationType } from './types';
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   value?: string | number | readonly string[] | undefined;

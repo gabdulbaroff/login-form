@@ -1,8 +1,9 @@
-import { TextInput, ValidationType } from './TextInput';
+import { TextInput } from './TextInput';
 import { type ChangeEvent, type FC, type InputHTMLAttributes, useState } from 'react';
 import css from './PasswordInput.module.css';
 import cn from 'classnames';
 import { PasswordCriteria, type CriteriaType } from '../PasswordCriteria';
+import { ValidationType } from './types';
 
 interface PasswordInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
