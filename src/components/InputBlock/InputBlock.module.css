@@ -28,7 +28,7 @@
       }
 
       &.validationDanger {
-        border: 1px solid #d81159;
+        border: 1px solid var(--error-color);
       }
 
       &.validationWarning {
