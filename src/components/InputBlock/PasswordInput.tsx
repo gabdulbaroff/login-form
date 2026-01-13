@@ -4,6 +4,8 @@ import css from './PasswordInput.module.css';
 import cn from 'classnames';
 import { PasswordCriteria, type CriteriaType } from '../PasswordCriteria';
 import { ValidationType } from './types';
+import { ShowPasswordIcon } from '../../icons';
+import { Button } from '../Button';
 
 interface PasswordInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -71,9 +73,9 @@ export const PasswordInput: FC<PasswordInputProps> = ({
         onChange={onPasswordChange}
         {...inputProps}
       />
-      <span className={cn(css.showPassword, { [css.error]: error })} onClick={onShowPassword}>
-        {/* <EyeCloseIcon /> */}
-      </span>
+      <Button className={css.showPasswordButton} onClick={onShowPassword}>
+        <ShowPasswordIcon className={css.showPasswordIcon} />
+      </Button>
 
       {showCriteria && <PasswordCriteria criteria={criteria} />}
     </div>

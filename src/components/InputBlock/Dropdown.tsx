@@ -46,14 +46,7 @@ export const Dropdown: FC<DropdownProps> = ({ options, onSelect, className, defa
         })}
         onClick={handleDropdownToggle}
       >
-        <>
-          {selectedOption.label}
-          {/* <ChevronIcon
-            className={cn(css.dropdownSelectedIcon, {
-              [css.open]: isOpen,
-            })}
-          /> */}
-        </>
+        <>{selectedOption.label}</>
       </div>
       {isOpen && (
         <ul className={css.dropdownOptions}>

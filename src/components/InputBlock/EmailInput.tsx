@@ -9,7 +9,6 @@ interface EmailInputProps extends InputHTMLAttributes<HTMLInputElement> {
   error: string;
   className?: string;
   label?: string;
-  onDeleteInput?: (id: string) => void;
 }
 
 export const EmailInput: FC<EmailInputProps> = ({
@@ -17,8 +16,6 @@ export const EmailInput: FC<EmailInputProps> = ({
   error,
   className,
   value,
-  id,
-  onDeleteInput,
   ...inputProps
 }) => {
   return (
@@ -31,11 +28,6 @@ export const EmailInput: FC<EmailInputProps> = ({
         validationType={ValidationType.Danger}
         {...inputProps}
       />
-      {onDeleteInput && (
-        <div className={css.closeIconContainer} onClick={() => id && onDeleteInput(id)}>
-          {/* <CloseIcon className={css.closeIcon} /> */}
-        </div>
-      )}
     </div>
   );
 };
