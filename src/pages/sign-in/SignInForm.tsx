@@ -21,10 +21,10 @@ export const SignInForm = () => {
     password: '',
   });
 
-  const [formValidation, setFormValidation] = useState({
-    error: '',
-    success: '',
-  });
+  // const [formValidation, setFormValidation] = useState({
+  //   error: '',
+  //   success: '',
+  // });
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -35,16 +35,15 @@ export const SignInForm = () => {
       password: password ? '' : 'Enter your password',
     });
     if (email && password) {
-      const response = await signIn(email, password);
-
-      if ('data' in response) {
-      } else {
-        // setFormValidation({
-        //   ...formValidation,
-        //   // @ts-ignore FIXME: Add error to api
-        //   error: response.error.data.message,
-        // });
-      }
+      // const response = await signIn(email, password);
+      // if ('data' in response) {
+      // } else {
+      // setFormValidation({
+      //   ...formValidation,
+      //   // @ts-ignore FIXME: Add error to api
+      //   error: response.error.data.message,
+      // });
+      // }
     }
   };
 
@@ -57,7 +56,7 @@ export const SignInForm = () => {
     });
   };
 
-  const signIn = async (emailOrUsername: string, password: string) => {};
+  // const signIn = async (emailOrUsername: string, password: string) => {};
 
   return (
     <div className={css.signInForm}>

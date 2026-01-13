@@ -1,12 +1,7 @@
 import cn from 'classnames';
 import css from './InputBlock.module.css';
 import type { FC, InputHTMLAttributes } from 'react';
-
-export enum ValidationType {
-  Primary,
-  Danger,
-  Warning,
-}
+import type { ValidationType } from './types';
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   value?: string | number | readonly string[] | undefined;
@@ -31,9 +26,9 @@ export const TextInput: FC<TextInputProps> = ({
         <input
           className={cn(css.input, {
             [css.validation]: validation,
-            [css.validationPrimary]: validationType === ValidationType.Primary,
-            [css.validationDanger]: validationType === ValidationType.Danger,
-            [css.validationWarning]: validationType === ValidationType.Warning,
+            [css.validationPrimary]: validationType === 'primary',
+            [css.validationDanger]: validationType === 'danger',
+            [css.validationWarning]: validationType === 'warning',
           })}
           {...inputProps}
           value={value}
