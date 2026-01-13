@@ -5,7 +5,7 @@ export const AppRoutes = () => {
   return (
     <BrowserRouter basename='/'>
       <Routes>
-        <Route path='/' element={<SignInPage />} />
+        <Route path='/login-form' element={<SignInPage />} />
       </Routes>
     </BrowserRouter>
   );
