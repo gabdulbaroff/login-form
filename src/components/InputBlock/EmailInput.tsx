@@ -1,7 +1,5 @@
 import { TextInput } from './TextInput';
 import type { FC, InputHTMLAttributes } from 'react';
-import css from './EmailInput.module.css';
-import cn from 'classnames';
 import { ValidationType } from './types';
 
 interface EmailInputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -19,7 +17,7 @@ export const EmailInput: FC<EmailInputProps> = ({
   ...inputProps
 }) => {
   return (
-    <div className={cn(css.emailInput, className)}>
+    <div className={className}>
       <TextInput
         type='email'
         label={label}
