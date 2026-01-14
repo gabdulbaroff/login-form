@@ -9,7 +9,7 @@
   padding: 50px;
 }
 
-@media (min-width: 576px) {
+@media (--breakpoint-sm) {
   .Layout {
     > * {
       width: 490px;

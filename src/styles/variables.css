@@ -5,3 +5,8 @@
   --error-color: #ed474a;
   --primary-size: 16px;
 }
+
+@custom-media --breakpoint-sm (min-width: 576px);
+@custom-media --breakpoint-md (min-width: 768px);
+@custom-media --breakpoint-lg (min-width: 992px);
+@custom-media --breakpoint-xl (min-width: 1200px);
