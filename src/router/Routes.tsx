@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { SignInPage } from '../pages/sign-in/SignInPage';
+import { SignInPage } from '../pages/sign-in';
 
 export const AppRoutes = () => {
   return (

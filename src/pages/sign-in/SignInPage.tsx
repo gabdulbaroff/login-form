@@ -1,4 +1,4 @@
-import { ContentHeader } from '../../components/ContentHeader/ContentHeader';
+import { ContentHeader } from '../../components/ContentHeader';
 import { SignInForm } from './SignInForm';
 
 export const SignInPage = () => {

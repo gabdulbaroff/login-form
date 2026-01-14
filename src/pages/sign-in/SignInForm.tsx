@@ -1,6 +1,6 @@
 import css from './SignInForm.module.css';
-import { EmailInput } from '../../components/InputBlock/EmailInput';
-import { PasswordInput } from '../../components/InputBlock/PasswordInput';
+import { EmailInput } from '../../components/InputBlock';
+import { PasswordInput } from '../../components/InputBlock';
 import { Button } from '../../components/Button';
 import { useState, type ChangeEvent, type FormEvent } from 'react';
 // import { FormValidation } from '../../components/FormValidation/FormValidation';

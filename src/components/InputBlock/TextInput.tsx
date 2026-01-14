@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import css from './InputBlock.module.css';
+import css from './TextInput.module.css';
 import type { FC, InputHTMLAttributes } from 'react';
 import { ValidationType } from './types';
 
