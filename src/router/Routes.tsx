@@ -2,15 +2,28 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { SignInPage } from '../pages/sign-in';
 import { ResetPasswordPage } from '../pages/reset-password';
 import { SignUpPage } from '../pages/sign-up';
+import { CatsPage } from '../pages/cats';
+import { AuthenticatedRoute } from '../components/AuthenticatedRoute';
+import { AuthProvider } from '../context/AuthContext';
 
 export const AppRoutes = () => {
   return (
     <BrowserRouter basename='/'>
-      <Routes>
-        <Route path='/login-form' element={<SignInPage />} />
-        <Route path='/user/reset-password' element={<ResetPasswordPage />} />
-        <Route path='/sign-up' element={<SignUpPage />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path='/login-form' element={<SignInPage />} />
+          <Route path='/user/reset-password' element={<ResetPasswordPage />} />
+          <Route path='/sign-up' element={<SignUpPage />} />
+          <Route
+            path='/cats'
+            element={
+              <AuthenticatedRoute>
+                <CatsPage />
+              </AuthenticatedRoute>
+            }
+          />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 };

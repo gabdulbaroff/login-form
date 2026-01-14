@@ -3,8 +3,10 @@ import { EmailInput } from '../../components/InputBlock';
 import { PasswordInput } from '../../components/InputBlock';
 import { Button } from '../../components/Button';
 import { useState, type ChangeEvent, type FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signIn } from '../../api/auth';
+import { useAuth } from '../../context/AuthContext';
+import { FormValidation } from '../../components/FormValidation';
 
 interface FormData {
   email: string;
@@ -25,6 +27,8 @@ export const SignInForm = () => {
     type: 'error' | 'success';
     text: string;
   } | null>(null);
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -41,11 +45,16 @@ export const SignInForm = () => {
 
       try {
         const response = await signIn(email, password);
+        if (response.user) {
+          login(response.user);
+          setTimeout(() => {
+            navigate('/cats');
+          }, 1000);
+        }
         setFormMessage({
           type: 'success',
           text: response.message,
         });
-        console.log('Signed in user:', response.user);
       } catch (error: any) {
         setFormMessage({
           type: 'error',
@@ -69,21 +78,7 @@ export const SignInForm = () => {
   return (
     <div className={css.signInForm}>
       <form onSubmit={handleSubmit}>
-        {formMessage && (
-          <div
-            style={{
-              padding: '12px',
-              marginBottom: '16px',
-              borderRadius: '4px',
-              backgroundColor: formMessage.type === 'error' ? '#ed474a' : '#4caf50',
-              color: '#fff',
-              fontSize: '14px',
-            }}
-            role='alert'
-          >
-            {formMessage.text}
-          </div>
-        )}
+        <FormValidation formMessage={formMessage} />
         <EmailInput
           name='email'
           value={formData.email}
