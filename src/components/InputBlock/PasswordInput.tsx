@@ -69,11 +69,17 @@ export const PasswordInput: FC<PasswordInputProps> = ({
         validationType={validationType || ValidationType.Danger}
         onFocus={onFocus}
         onBlur={onBlur}
-        autoComplete=''
+        autoComplete='current-password'
         onChange={onPasswordChange}
         {...inputProps}
       />
-      <Button className={css.showPasswordButton} onClick={onShowPassword}>
+      <Button
+        className={css.showPasswordButton}
+        onClick={onShowPassword}
+        aria-label={showPassword ? 'Hide password' : 'Show password'}
+        aria-pressed={showPassword}
+        type='button'
+      >
         <ShowPasswordIcon className={css.showPasswordIcon} />
       </Button>
 

@@ -24,6 +24,7 @@ export const EmailInput: FC<EmailInputProps> = ({
         value={value}
         validation={error}
         validationType={ValidationType.Danger}
+        autoComplete='email'
         {...inputProps}
       />
     </div>

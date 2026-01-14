@@ -1,5 +1,4 @@
 import css from './PasswordCriteria.module.css';
-import { v4 as uuid } from 'uuid';
 import type { FC } from 'react';
 import cn from 'classnames';
 
@@ -14,11 +13,11 @@ type PasswordCriteriaProps = {
 
 export const PasswordCriteria: FC<PasswordCriteriaProps> = ({ criteria }) => {
   return (
-    <div className={css.passwordCriteria}>
-      <label className={css.label}>Password must content</label>
+    <div className={css.passwordCriteria} role='status' aria-live='polite'>
+      <div className={css.label}>Password must contain</div>
       <ul className={css.content}>
         {criteria.map((c) => (
-          <li key={uuid()} className={cn(css.criteria, { [css.met]: c.isMet })}>
+          <li key={c.label} className={cn(css.criteria, { [css.met]: c.isMet })}>
             {c.label}
           </li>
         ))}

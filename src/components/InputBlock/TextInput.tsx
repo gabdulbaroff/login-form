@@ -2,6 +2,7 @@ import cn from 'classnames';
 import css from './TextInput.module.css';
 import type { FC, InputHTMLAttributes } from 'react';
 import { ValidationType } from './types';
+import { useId } from 'react';
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   value?: string | number | readonly string[] | undefined;
@@ -19,21 +20,35 @@ export const TextInput: FC<TextInputProps> = ({
   className,
   ...inputProps
 }) => {
+  const inputId = useId();
+  const errorId = useId();
+
   return (
     <div className={cn(css.textInput, className)}>
       <div>
-        {label && <label className={css.label}>{label}</label>}
+        {label && (
+          <label htmlFor={inputId} className={css.label}>
+            {label}
+          </label>
+        )}
         <input
+          id={inputId}
           className={cn(css.input, {
             [css.validation]: validation,
             [css.validationPrimary]: validationType === ValidationType.Primary,
             [css.validationDanger]: validationType === ValidationType.Danger,
             [css.validationWarning]: validationType === ValidationType.Warning,
           })}
+          aria-invalid={!!validation}
+          aria-describedby={validation ? errorId : undefined}
           {...inputProps}
           value={value}
         />
-        {validation && <div className={cn(css.validationDescription)}>{validation}</div>}
+        {validation && (
+          <div id={errorId} className={cn(css.validationDescription)} role='alert'>
+            {validation}
+          </div>
+        )}
       </div>
     </div>
   );
