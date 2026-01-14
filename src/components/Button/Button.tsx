@@ -14,6 +14,7 @@ export const Button: FC<ButtonProps> = ({
   className,
   btnType = 'secondary',
   children,
+  ...restProps
 }) => {
   return (
     <button
@@ -27,6 +28,7 @@ export const Button: FC<ButtonProps> = ({
         className,
       )}
       onClick={onClick}
+      {...restProps}
     >
       {children}
     </button>
