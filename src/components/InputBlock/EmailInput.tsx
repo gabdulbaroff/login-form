@@ -14,7 +14,7 @@ export const EmailInput: FC<EmailInputProps> = ({
   error,
   className,
   value,
-  ...inputProps
+  ...restProps
 }) => {
   return (
     <div className={className}>
@@ -25,7 +25,7 @@ export const EmailInput: FC<EmailInputProps> = ({
         validation={error}
         validationType={ValidationType.Danger}
         autoComplete='email'
-        {...inputProps}
+        {...restProps}
       />
     </div>
   );

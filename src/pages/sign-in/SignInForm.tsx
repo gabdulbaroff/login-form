@@ -3,8 +3,8 @@ import { EmailInput } from '../../components/InputBlock';
 import { PasswordInput } from '../../components/InputBlock';
 import { Button } from '../../components/Button';
 import { useState, type ChangeEvent, type FormEvent } from 'react';
-// import { FormValidation } from '../../components/FormValidation/FormValidation';
 import { Link } from 'react-router-dom';
+import { signIn } from '../../api/auth';
 
 interface FormData {
   email: string;
@@ -20,11 +20,11 @@ export const SignInForm = () => {
     email: '',
     password: '',
   });
-
-  // const [formValidation, setFormValidation] = useState({
-  //   error: '',
-  //   success: '',
-  // });
+  const [isLoading, setIsLoading] = useState(false);
+  const [formMessage, setFormMessage] = useState<{
+    type: 'error' | 'success';
+    text: string;
+  } | null>(null);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -34,16 +34,26 @@ export const SignInForm = () => {
       email: email ? '' : 'Enter your email',
       password: password ? '' : 'Enter your password',
     });
+
     if (email && password) {
-      // const response = await signIn(email, password);
-      // if ('data' in response) {
-      // } else {
-      // setFormValidation({
-      //   ...formValidation,
-      //   // @ts-ignore FIXME: Add error to api
-      //   error: response.error.data.message,
-      // });
-      // }
+      setIsLoading(true);
+      setFormMessage(null);
+
+      try {
+        const response = await signIn(email, password);
+        setFormMessage({
+          type: 'success',
+          text: response.message,
+        });
+        console.log('Signed in user:', response.user);
+      } catch (error: any) {
+        setFormMessage({
+          type: 'error',
+          text: error.message || 'An error occurred',
+        });
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -56,12 +66,24 @@ export const SignInForm = () => {
     });
   };
 
-  // const signIn = async (emailOrUsername: string, password: string) => {};
-
   return (
     <div className={css.signInForm}>
       <form onSubmit={handleSubmit}>
-        {/* <FormValidation validation={formValidation} /> */}
+        {formMessage && (
+          <div
+            style={{
+              padding: '12px',
+              marginBottom: '16px',
+              borderRadius: '4px',
+              backgroundColor: formMessage.type === 'error' ? '#ed474a' : '#4caf50',
+              color: '#fff',
+              fontSize: '14px',
+            }}
+            role='alert'
+          >
+            {formMessage.text}
+          </div>
+        )}
         <EmailInput
           name='email'
           value={formData.email}
@@ -82,8 +104,8 @@ export const SignInForm = () => {
           <Link to='/user/reset-password'>Forgot your password?</Link>
           <Link to='/sign-up'>Sign up for free</Link>
         </div>
-        <Button type='submit' btnType='primary'>
-          Sign in
+        <Button type='submit' btnType='primary' disabled={isLoading}>
+          {isLoading ? 'Signing in...' : 'Sign in'}
         </Button>
       </form>
     </div>

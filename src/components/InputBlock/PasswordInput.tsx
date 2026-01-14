@@ -20,7 +20,7 @@ export const PasswordInput: FC<PasswordInputProps> = ({
   className,
   validationType,
   onChange,
-  ...inputProps
+  ...restProps
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -29,7 +29,6 @@ export const PasswordInput: FC<PasswordInputProps> = ({
   };
 
   const onPasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
     onChange(event);
   };
 
@@ -42,7 +41,7 @@ export const PasswordInput: FC<PasswordInputProps> = ({
         validationType={validationType || ValidationType.Danger}
         autoComplete='current-password'
         onChange={onPasswordChange}
-        {...inputProps}
+        {...restProps}
       />
       <Button
         className={css.showPasswordButton}

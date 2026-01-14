@@ -7,7 +7,7 @@ export const ResetPasswordPage = () => {
     <div>
       <ContentHeader
         label='Stay in touch !!!'
-        content='A registration form will appear here soon.'
+        content='A Reset Password form will appear here soon.'
       />
       <Lottie animationData={launchingSoonAnimation} />
     </div>

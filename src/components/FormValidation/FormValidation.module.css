@@ -1,0 +1,15 @@
+.formValidation {
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  color: '#fff';
+  font-size: '14px';
+
+  .error {
+    background-color: '#ed474a';
+  }
+
+  .success {
+    background-color: '#4caf50';
+  }
+}
