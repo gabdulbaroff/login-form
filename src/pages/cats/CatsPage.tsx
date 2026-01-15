@@ -17,8 +17,16 @@ export const CatsPage = () => {
 
   return (
     <div className={css.container}>
-      <ContentHeader label={`You found me!!!`} content={`Welcome, ${user?.name}!`} />
-      <Lottie animationData={catInBoxAnimation} aria-label='Cat animation' role='img' />
+      <ContentHeader
+        label={`You found me!!!`}
+        content={`Welcome, ${user?.name}! This is for demonstration purposes only, you will be logged out after reboot.`}
+      />
+      <Lottie
+        animationData={catInBoxAnimation}
+        aria-label='Cat animation'
+        role='img'
+        className={css.lottie}
+      />
       <Button btnType='secondary' onClick={handleLogout} className={css.logoutButton}>
         Logout
       </Button>

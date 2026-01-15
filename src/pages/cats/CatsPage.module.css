@@ -1,3 +1,5 @@
+@import '../../styles/variables.css';
+
 .container {
   display: flex;
   flex-direction: column;
@@ -7,4 +9,9 @@
 
 .logoutButton {
   margin-top: 20px;
+}
+
+.lottie {
+  border-radius: 2rem;
+  overflow: hidden;
 }

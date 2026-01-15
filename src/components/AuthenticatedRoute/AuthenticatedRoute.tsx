@@ -13,5 +13,5 @@ export const AuthenticatedRoute = ({ children }: AuthenticatedRouteProps) => {
     return <Navigate to='/login-form' replace />;
   }
 
-  return <>{children}</>;
+  return children;
 };

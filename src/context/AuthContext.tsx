@@ -15,6 +15,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
+  // FIXME: It'just for demo, need to add sessions and real authentication
   const [user, setUser] = useState<User | null>(null);
 
   const login = (userData: User) => {
