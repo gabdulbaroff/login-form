@@ -6,7 +6,7 @@ Demo-app for login form with React and TypeScript.
 
 https://gabdulbaroff.github.io/login-form/
 
-**Correct test data for authorization:**
+**Correct test data for authorization: (don't do it in real applications!)**
 
 - Email: `test@example.com`
 - Password: `qweQWE123!`
