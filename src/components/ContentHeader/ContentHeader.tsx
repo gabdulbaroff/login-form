@@ -11,7 +11,7 @@ interface ContentHeaderProps {
 export const ContentHeader: FC<ContentHeaderProps> = ({ label, content, className }) => {
   return (
     <div className={cn(css.ContentHeader, className)}>
-      <div className={css.Label}>{label}</div>
+      <h1 className={css.Label}>{label}</h1>
       {content && <div className={css.Content}>{content}</div>}
     </div>
   );

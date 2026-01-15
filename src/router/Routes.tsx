@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { SignInPage } from '../pages/sign-in';
 import { ResetPasswordPage } from '../pages/reset-password';
 import { SignUpPage } from '../pages/sign-up';
@@ -22,6 +22,7 @@ export const AppRoutes = () => {
               </AuthenticatedRoute>
             }
           />
+          <Route path='*' element={<Navigate to='/login-form' replace />} />{' '}
         </Routes>
       </AuthProvider>
     </BrowserRouter>

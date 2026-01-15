@@ -78,30 +78,33 @@ export const SignInForm = () => {
   return (
     <div className={css.signInForm}>
       <form onSubmit={handleSubmit}>
-        <FormValidation formMessage={formMessage} />
-        <EmailInput
-          name='email'
-          value={formData.email}
-          error={errors.email}
-          onChange={handleChange}
-          label='Email'
-          className={css.EmailInput}
-        />
-        <PasswordInput
-          name='password'
-          value={formData.password}
-          error={errors.password}
-          onChange={handleChange}
-          label='Password'
-          className={css.PasswordInput}
-        />
-        <div className={css.resetPasswordLink}>
-          <Link to='/user/reset-password'>Forgot your password?</Link>
-          <Link to='/sign-up'>Sign up for free</Link>
-        </div>
-        <Button type='submit' btnType='primary' disabled={isLoading}>
-          {isLoading ? 'Signing in...' : 'Sign in'}
-        </Button>
+        <fieldset className={css.fieldset}>
+          <legend className={css.fieldsetLegend}>Sign in credentials</legend>
+          <FormValidation formMessage={formMessage} />
+          <EmailInput
+            name='email'
+            value={formData.email}
+            error={errors.email}
+            onChange={handleChange}
+            label='Email'
+            className={css.EmailInput}
+          />
+          <PasswordInput
+            name='password'
+            value={formData.password}
+            error={errors.password}
+            onChange={handleChange}
+            label='Password'
+            className={css.PasswordInput}
+          />
+          <div className={css.resetPasswordLink}>
+            <Link to='/user/reset-password'>Forgot your password?</Link>
+            <Link to='/sign-up'>Sign up for free</Link>
+          </div>
+          <Button type='submit' btnType='primary' disabled={isLoading}>
+            {isLoading ? 'Signing in...' : 'Sign in'}
+          </Button>
+        </fieldset>
       </form>
     </div>
   );

@@ -4,9 +4,9 @@ import css from './App.module.css';
 function App() {
   return (
     <div className={css.Layout}>
-      <div className={css.Content}>
+      <main className={css.Content}>
         <AppRoutes />
-      </div>
+      </main>
     </div>
   );
 }

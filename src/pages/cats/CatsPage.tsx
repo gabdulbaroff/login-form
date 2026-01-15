@@ -18,7 +18,7 @@ export const CatsPage = () => {
   return (
     <div className={css.container}>
       <ContentHeader label={`You found me!!!`} content={`Welcome, ${user?.name}!`} />
-      <Lottie animationData={catInBoxAnimation} />
+      <Lottie animationData={catInBoxAnimation} aria-label='Cat animation' role='img' />
       <Button btnType='secondary' onClick={handleLogout} className={css.logoutButton}>
         Logout
       </Button>

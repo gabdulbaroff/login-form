@@ -25,30 +25,28 @@ export const TextInput: FC<TextInputProps> = ({
 
   return (
     <div className={cn(css.textInput, className)}>
-      <div>
-        {label && (
-          <label htmlFor={inputId} className={css.label}>
-            {label}
-          </label>
-        )}
-        <input
-          id={inputId}
-          className={cn(css.input, {
-            [css.validation]: validation,
-            [css.validationDanger]: validationType === ValidationType.Danger,
-            [css.validationWarning]: validationType === ValidationType.Warning,
-          })}
-          aria-invalid={!!validation}
-          aria-describedby={validation ? errorId : undefined}
-          {...inputProps}
-          value={value}
-        />
-        {validation && (
-          <div id={errorId} className={cn(css.validationDescription)} role='alert'>
-            {validation}
-          </div>
-        )}
-      </div>
+      {label && (
+        <label htmlFor={inputId} className={css.label}>
+          {label}
+        </label>
+      )}
+      <input
+        id={inputId}
+        className={cn(css.input, {
+          [css.validation]: validation,
+          [css.validationDanger]: validationType === ValidationType.Danger,
+          [css.validationWarning]: validationType === ValidationType.Warning,
+        })}
+        aria-invalid={!!validation}
+        aria-describedby={validation ? errorId : undefined}
+        {...inputProps}
+        value={value}
+      />
+      {validation && (
+        <div id={errorId} className={cn(css.validationDescription)} role='alert'>
+          {validation}
+        </div>
+      )}
     </div>
   );
 };
