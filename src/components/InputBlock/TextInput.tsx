@@ -35,7 +35,6 @@ export const TextInput: FC<TextInputProps> = ({
           id={inputId}
           className={cn(css.input, {
             [css.validation]: validation,
-            [css.validationPrimary]: validationType === ValidationType.Primary,
             [css.validationDanger]: validationType === ValidationType.Danger,
             [css.validationWarning]: validationType === ValidationType.Warning,
           })}

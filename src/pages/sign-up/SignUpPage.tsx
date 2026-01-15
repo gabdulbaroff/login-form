@@ -1,6 +1,7 @@
 import { ContentHeader } from '../../components/ContentHeader';
 import Lottie from 'lottie-react';
 import launchingSoonAnimation from '../../animations/launching-soon.json';
+import css from './SignUpPage.module.css';
 
 export const SignUpPage = () => {
   return (
@@ -9,7 +10,7 @@ export const SignUpPage = () => {
         label='Stay in touch !!!'
         content='A registration form will appear here soon.'
       />
-      <Lottie animationData={launchingSoonAnimation} />
+      <Lottie animationData={launchingSoonAnimation} className={css.lottie} />
     </div>
   );
 };

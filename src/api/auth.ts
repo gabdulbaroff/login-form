@@ -12,7 +12,7 @@ const THRESHOLD = 1000;
 export const signIn = async (email: string, password: string): Promise<SignInResponse> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (email === 'test@example.com' && password === 'Test1234') {
+      if (email === 'test@example.com' && password === 'qweQWE123!') {
         resolve({
           success: true,
           message: 'Successfully signed in',

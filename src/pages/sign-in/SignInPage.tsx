@@ -3,12 +3,9 @@ import { SignInForm } from './SignInForm';
 
 export const SignInPage = () => {
   return (
-    <div>
-      <ContentHeader
-        label='Sign in to your account'
-        content='Sign in using your work email and password'
-      />
+    <>
+      <ContentHeader label='Sign in' />
       <SignInForm />
-    </div>
+    </>
   );
 };

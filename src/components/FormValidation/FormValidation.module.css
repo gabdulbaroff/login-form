@@ -1,9 +1,9 @@
 .formValidation {
-  padding: 12px;
-  margin-bottom: 16px;
-  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
   color: #fff;
-  font-size: '14px';
+  font-size: 15px;
 
   &.error {
     background-color: #ed474a;

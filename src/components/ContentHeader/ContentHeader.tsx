@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 interface ContentHeaderProps {
   label: string;
-  content: string;
+  content?: string;
   className?: string;
 }
 
@@ -12,7 +12,7 @@ export const ContentHeader: FC<ContentHeaderProps> = ({ label, content, classNam
   return (
     <div className={cn(css.ContentHeader, className)}>
       <div className={css.Label}>{label}</div>
-      <div className={css.Content}>{content}</div>
+      {content && <div className={css.Content}>{content}</div>}
     </div>
   );
 };
