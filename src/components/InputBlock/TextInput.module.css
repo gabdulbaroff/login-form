@@ -36,10 +36,15 @@
     &:focus {
       opacity: 1;
     }
-  }
 
-  .validationDanger + .validationDescription {
-    /* color: var(--error-color); */
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px transparent inset;
+      -webkit-text-fill-color: var(--primary-color);
+      transition: background-color 5000s ease-in-out 0s;
+    }
   }
 
   .validationWarning + .validationDescription {
