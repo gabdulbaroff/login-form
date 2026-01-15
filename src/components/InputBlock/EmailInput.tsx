@@ -1,10 +1,9 @@
 import { TextInput } from './TextInput';
 import type { FC, InputHTMLAttributes } from 'react';
-import { ValidationType } from './types';
 
 interface EmailInputProps extends InputHTMLAttributes<HTMLInputElement> {
   value?: string;
-  error: string;
+  error?: string;
   className?: string;
   label?: string;
 }
@@ -17,16 +16,14 @@ export const EmailInput: FC<EmailInputProps> = ({
   ...restProps
 }) => {
   return (
-    <div className={className}>
-      <TextInput
-        type='email'
-        label={label}
-        value={value}
-        validation={error}
-        validationType={ValidationType.Danger}
-        autoComplete='email'
-        {...restProps}
-      />
-    </div>
+    <TextInput
+      type='email'
+      label={label}
+      value={value}
+      error={error}
+      autoComplete='email'
+      className={className}
+      {...restProps}
+    />
   );
 };

@@ -8,9 +8,9 @@ import { Button } from '../Button';
 
 interface PasswordInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  error: string;
+  error?: string;
   className?: string;
-  validationType?: ValidationType;
+  errorType?: ValidationType;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -18,7 +18,7 @@ export const PasswordInput: FC<PasswordInputProps> = ({
   label,
   error,
   className,
-  validationType,
+  errorType,
   onChange,
   ...restProps
 }) => {
@@ -28,19 +28,15 @@ export const PasswordInput: FC<PasswordInputProps> = ({
     setShowPassword(!showPassword);
   };
 
-  const onPasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
-    onChange(event);
-  };
-
   return (
     <div className={cn(css.passwordInput, className)}>
       <TextInput
         type={showPassword ? 'text' : 'password'}
         label={label}
-        validation={error}
-        validationType={validationType || ValidationType.Danger}
+        error={error}
+        errorType={errorType}
         autoComplete='current-password'
-        onChange={onPasswordChange}
+        onChange={onChange}
         {...restProps}
       />
       <Button

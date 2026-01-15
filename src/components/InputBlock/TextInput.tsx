@@ -7,16 +7,16 @@ import { useId } from 'react';
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   value?: string | number | readonly string[] | undefined;
   label?: string;
-  validation: string;
-  validationType: ValidationType;
+  error?: string;
+  errorType?: ValidationType;
   className?: string;
 }
 
 export const TextInput: FC<TextInputProps> = ({
   value,
   label,
-  validation,
-  validationType,
+  error,
+  errorType = ValidationType.Danger,
   className,
   ...inputProps
 }) => {
@@ -33,18 +33,18 @@ export const TextInput: FC<TextInputProps> = ({
       <input
         id={inputId}
         className={cn(css.input, {
-          [css.validation]: validation,
-          [css.validationDanger]: validationType === ValidationType.Danger,
-          [css.validationWarning]: validationType === ValidationType.Warning,
+          [css.validation]: error,
+          [css.validationDanger]: errorType === ValidationType.Danger,
+          [css.validationWarning]: errorType === ValidationType.Warning,
         })}
-        aria-invalid={!!validation}
-        aria-describedby={validation ? errorId : undefined}
+        aria-invalid={!!error}
+        aria-describedby={error ? errorId : undefined}
         {...inputProps}
         value={value}
       />
-      {validation && (
+      {error && (
         <div id={errorId} className={cn(css.validationDescription)} role='alert'>
-          {validation}
+          {error}
         </div>
       )}
     </div>
