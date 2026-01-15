@@ -3,7 +3,7 @@ import { type ChangeEvent, type FC, type InputHTMLAttributes, useState } from 'r
 import css from './PasswordInput.module.css';
 import cn from 'classnames';
 import { ValidationType } from './types';
-import { ShowPasswordIcon } from '../../icons';
+import { ClosePasswordIcon, ShowPasswordIcon } from '../../icons';
 import { Button } from '../Button';
 
 interface PasswordInputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -50,7 +50,11 @@ export const PasswordInput: FC<PasswordInputProps> = ({
         aria-pressed={showPassword}
         type='button'
       >
-        <ShowPasswordIcon className={css.showPasswordIcon} />
+        {showPassword ? (
+          <ShowPasswordIcon className={css.showPasswordIcon} />
+        ) : (
+          <ClosePasswordIcon className={css.showPasswordIcon} />
+        )}
       </Button>
     </div>
   );
