@@ -22,10 +22,7 @@ export const signIn = async (email: string, password: string): Promise<SignInRes
           },
         });
       } else {
-        reject({
-          success: false,
-          message: 'Invalid email or password',
-        });
+        reject(new Error('Invalid email or password'));
       }
     }, THRESHOLD);
   });
