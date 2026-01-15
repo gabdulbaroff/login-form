@@ -6,7 +6,7 @@
   align-items: center;
 
   height: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/cat.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/cat.webp');
   background-size: cover;
   background-position: 60% center;
   background-repeat: no-repeat;
